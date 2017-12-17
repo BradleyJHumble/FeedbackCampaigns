@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-	res.send("hello world");
+	res.send({ hey: 'there' });
 });
 
-app.listen(5000);
+// Heroku dynamic port
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);
