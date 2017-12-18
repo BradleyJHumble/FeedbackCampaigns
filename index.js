@@ -24,6 +24,9 @@ app.get(
 	})
 );
 
+app.get('/', function(require, response) {
+response.send("Hello World");
+});
 
 // Heroku dynamic port
 const PORT = process.env.PORT || 5000;
