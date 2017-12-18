@@ -5,7 +5,7 @@ const keys = require('./config/keys');
 const app = express();
 
 passsport.use(
-	new GoogleStrategy(
+	new GoogleStrategy( // google configuration
 		{
 			clientID: keys.googleClientID,
 			clientSecret: keys.googleClientSecret,
@@ -16,6 +16,14 @@ passsport.use(
 		}
 	)
 );
+
+app.get(
+	'/auth/google', // route
+	passport.authenticate('google', { // using google oauth
+		scope: ['profile', 'email'] // fetching profile and emails from google
+	})
+);
+
 
 // Heroku dynamic port
 const PORT = process.env.PORT || 5000;
