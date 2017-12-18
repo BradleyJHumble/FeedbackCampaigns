@@ -4,7 +4,8 @@
   "description": "An campaign system for sending out emails for feedback from users.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node index.js",
+    "dev" : "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/BradleyJHumble/FeedbackCampaigns#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "nodemon": "^1.13.3",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
   }
