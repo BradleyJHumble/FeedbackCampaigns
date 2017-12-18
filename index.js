@@ -24,6 +24,10 @@ app.get(
 	})
 );
 
+app.get('/auth/google/callback', passport.authenticate('google')); // Google Stratergy handeling the google login
+
+
+
 app.get('/', function(require, response) {
 response.send("Hello World");
 });
