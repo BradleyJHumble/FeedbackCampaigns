@@ -1,36 +1,12 @@
 const express = require('express');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./config/keys');
 const app = express();
+require('./services/passport'); // dont need to call it so only require
+const authRoutes = require('./routes/authRoutes');
 
-passport.use(
-	new GoogleStrategy( // google configuration
-		{
-			clientID: keys.googleClientID,
-			clientSecret: keys.googleClientSecret,
-			callbackURL: '/auth/google/callback'
-		}, 
-		(accessToken, refreshToken, profile, done) => {
-			console.log('access token: ', accessToken);
-			console.log('refresh token: ', refreshToken);
-			console.log('profile: ', profile);
-		}
-	)
-);
-
-app.get(
-	'/auth/google', // route
-	passport.authenticate('google', { // using google oauth
-		scope: ['profile', 'email'] // fetching profile and emails from google
-	})
-);
-
-app.get('/auth/google/callback', passport.authenticate('google')); // Google Stratergy handeling the google login
+authRoutes(app);
 
 
-
-app.get('/', function(require, response) {
+app.get('/', function(require, response) { // for testing 
 response.send("Hello World");
 });
 
