@@ -24,3 +24,5 @@ Client Clean up,
 Webhooks 
 
 and wiring redux.
+
+Reminder to run nodemon use "npm run dev" in terminal
