@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 require('./services/passport'); // dont need to call it so only require
 const keys = require('./config/keys');
 mongoose.connect(keys.mongoURI);
+require('./models/User');
  
-
 const app = express();
 require('./routes/authRoutes')(app); // calling function with app object
 
