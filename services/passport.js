@@ -16,8 +16,11 @@ passport.use(
 			User.findOne({ googleId: profile.id}).then(existingUser => { // then promise to stop asynchronous calling that leads to issues
 					if (existingUser) {
 						// already have a record with given profileId/googleId
-					} else {
-						new User({ googleId: profile.id }).save(); // if no account then makes an account
+						done(null, existingUser);
+					} else { // if no account then makes an account
+						new User({ googleId: profile.id }) // creates an mongoose model instance for new users
+						.save() // save to mlab
+						.then(user=> done(null, user)); // then promise to stop asynchronous calling that leads to issues
 					}
 				});
 		}
