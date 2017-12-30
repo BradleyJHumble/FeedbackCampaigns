@@ -3,24 +3,24 @@ An campaign system for sending out emails for feedback from users.
 
 ToDo
 
-Today: Wednesday
+Queries, 
 
-Mongo DB set up, Model Classes, Queries, Passport CallBack, Encoding user info, Enabaling Cookies, and Logging out users. 
+Passport CallBack, 
 
-Tomorrow: Thursday
+Encoding user info,
 
-React Client Side 
+Enabaling Cookies, 
 
-Friday
+Logging out users,
 
-Credit System w/ Stripe
+React Client Side, 
 
-Saturday
+Credit System w/ Stripe,
 
-Survey system through mongoose
+Survey system through mongoose,
 
-Client Clean up
+Client Clean up,
 
-Sunday
+Webhooks 
 
-Webhooks and wiring redux
+and wiring redux.
