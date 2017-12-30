@@ -5,4 +5,4 @@ const userSchema = new Schema ({
 	googleId: String // only thing for now
 });
 
-mongoose.model('users', userSchema);
+mongoose.model('users', userSchema); // parsing userSchema as an model through mongoose
