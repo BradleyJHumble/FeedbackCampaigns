@@ -4,8 +4,15 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 const User = mongoose.model('users');
 
-passport.seralizedUser((user, done) => { // user model instance id (user.id) for serialization 
-	done (null, user.id); // shortcut referencing the id from mongo
+passport.seralizeUser((user, done) => { // user model instance id (user.id) for serialization 
+	done(null, user.id); // shortcut referencing the id from mongo
+});
+
+passport.deserializeUser((id, done) => {
+	User.findById(id)
+		.then(user => { // then promise to stop asynchronous calling that leads to issues
+			done(null, user);
+		});     
 });
 
 passport.use(
