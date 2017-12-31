@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 const User = mongoose.model('users');
 
+passport.seralizedUser((user, done) => { // user model instance id (user.id) for serialization 
+	done (null, user.id); // shortcut referencing the id from mongo
+});
+
 passport.use(
 	new GoogleStrategy( // google configuration
 		{
