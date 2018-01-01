@@ -15,7 +15,7 @@ app.use(
 	cookieSession({
 			maxAge: 30 * 24 * 60 * 60 * 1000, // Cookies age equals 30 days
 			keys: [keys.cookieKey]
-	});
+	})
 );
 
 // sets up passports system

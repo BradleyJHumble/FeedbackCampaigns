@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 const User = mongoose.model('users');
 
-passport.seralizeUser((user, done) => { // user model instance id (user.id) for serialization 
+passport.serializeUser((user, done) => { // user model instance id (user.id) for serialization 
 	done(null, user.id); // shortcut referencing the id from mongo
 });
 
