@@ -1,6 +1,6 @@
 const passport = require('passport');
 
-module.exports = app => {
+module.exports = app => { // exports to index
 	
 	app.get(
 		'/auth/google', // route
@@ -11,8 +11,13 @@ module.exports = app => {
 
 	app.get('/auth/google/callback', passport.authenticate('google')); // Google Stratergy handeling the google login
 
-	app.get('/api/current_user', (req, res) => {
-		res.send(req.user);
-	});
+	app.get('/logout', (req, res) => {
+		req.logout();
+		res.send(req.user); // for testing 
+	}); 
+
+	/*app.get('/api/current_user', (req, res) => {
+		res.send(req.user);    // this is for testing purposes
+	}); */
 };
 
