@@ -12,7 +12,7 @@
     "url": "git+https://github.com/BradleyJHumble/FeedbackCampaigns.git"
   },
   "engines": {
-    "node": "8.9.1",
+    "node": "8.9.1"
   },
   "author": "BradleyJHumble",
   "license": "ISC",
