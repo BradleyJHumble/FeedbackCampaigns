@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/BradleyJHumble/FeedbackCampaigns.git"
   },
+  "engines": {
+    "node": "9.3.0",
+    "npm": "5.6.0"
+  },
   "author": "BradleyJHumble",
   "license": "ISC",
   "bugs": {
