@@ -1,8 +1,15 @@
+// for redux and root components 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import ReactDom from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import App from './components/App';
+
+const store = createStore(() => [], {}, applyMiddleware());
+
+ReactDom.render(
+	<Provider store={store}><App/></Provider>,
+	document.querySelector('#root')
+);
+
