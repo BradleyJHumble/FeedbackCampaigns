@@ -23,18 +23,15 @@ passport.use(
 			callbackURL: '/auth/google/callback',
 			proxy: true // for Heroku proxy 
 		}, 
-		(accessToken, refreshToken, profile, done) => { 
+		async (accessToken, refreshToken, profile, done) => { 
 			// findOne sees if user has an account
-			User.findOne({ googleId: profile.id}).then(existingUser => { // then promise to stop asynchronous calling that leads to issues
-					if (existingUser) {
-						// already have a record with given profileId/googleId
-						done(null, existingUser);
-					} else { // if no account then makes an account
-						new User({ googleId: profile.id }) // creates an mongoose model instance for new users
-						.save() // save to mlab
-						.then(user=> done(null, user)); // then promise to stop asynchronous calling that leads to issues
-					}
-				});
+			const existingUser = await User.findOne({ googleId: profile.id})
+				if (existingUser) { // if account then nothing
+					done(null, existingUser);
+				} else { 
+					const user = await new User({ googleId: profile.id }).save()
+					done(null,user); // if no account then make one
+				}
 		}
 	)
 );

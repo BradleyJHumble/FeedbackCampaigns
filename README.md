@@ -1,7 +1,7 @@
 # FeedbackCampaigns
 An campaign system for sending out emails for feedback from users. 
 
-ToDo
+ToDo:
 
 React Client Side, 
 
@@ -16,6 +16,3 @@ Webhooks
 and wiring redux.
 
 Reminder to run nodemon use "npm run dev" in terminal
-
-
-Going to fix it for production key system 
