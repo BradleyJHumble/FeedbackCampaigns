@@ -13,7 +13,7 @@ module.exports = app => { // exports to index
 
 	app.get('/logout', (req, res) => {
 		req.logout();
-		res.send(req.user); // for testing 
+		res.send(req.user); // for testing , if works returns empty variable
 	}); 
 
 	/*app.get('/api/current_user', (req, res) => {
