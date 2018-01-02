@@ -20,7 +20,8 @@ passport.use(
 		{
 			clientID: keys.googleClientID,
 			clientSecret: keys.googleClientSecret,
-			callbackURL: '/auth/google/callback'
+			callbackURL: '/auth/google/callback',
+			proxy: true // for Heroku proxy 
 		}, 
 		(accessToken, refreshToken, profile, done) => { 
 			// findOne sees if user has an account
