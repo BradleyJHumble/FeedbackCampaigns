@@ -15,7 +15,7 @@ passport.deserializeUser((id, done) => {
 		});     
 });
 
-passport.use(
+passport.use( 
 	new GoogleStrategy( // google configuration
 		{
 			clientID: keys.googleClientID,
@@ -23,15 +23,16 @@ passport.use(
 			callbackURL: '/auth/google/callback',
 			proxy: true // for Heroku proxy 
 		}, 
-		async (accessToken, refreshToken, profile, done) => { 
-			// findOne sees if user has an account
-			const existingUser = await User.findOne({ googleId: profile.id})
-				if (existingUser) { // if account then nothing
-					done(null, existingUser);
-				} else { 
-					const user = await new User({ googleId: profile.id }).save()
-					done(null,user); // if no account then make one
-				}
+		async (accessToken, refreshToken, profile, done) => { // replaced promises with es2017 async/await syntax
+			
+			const existingUser = await User.findOne({ googleId: profile.id}) // findOne sees if user has an account
+				
+			if (existingUser) { // if account then nothing
+				return done(null, existingUser);
+			} 
+
+			const user = await new User({ googleId: profile.id }).save() // if no account then make one
+			done(null,user); 
 		}
 	)
 );
