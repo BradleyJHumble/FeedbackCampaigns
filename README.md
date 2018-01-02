@@ -3,8 +3,6 @@ An campaign system for sending out emails for feedback from users.
 
 ToDo
 
-Logging out users,
-
 React Client Side, 
 
 Credit System w/ Stripe,
