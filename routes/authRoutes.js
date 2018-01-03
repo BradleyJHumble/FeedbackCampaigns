@@ -16,8 +16,7 @@ module.exports = app => { // exports to index
 		res.send(req.user); // for testing , if works returns empty variable
 	}); 
 
-	/*app.get('/api/current_user', (req, res) => {
-		res.send(req.user);    // this is for testing purposes
-	}); */
+	app.get('/api/current_user', (req, res) => {
+		res.send(req.user);    // used for react to see if user is logged in 
 };
 
