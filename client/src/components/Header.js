@@ -4,7 +4,7 @@ class Header extends Component { // simple for testing
 	render() {
 		return (
 				<nav>
-					<div className= "nav-wrapper">
+					<div  className= "nav-wrapper  light-blue darken-4">
 					<a className="left brand-logo">
 					Feedback Campaigns
 					</a> {/* ends left brand-logo */}
