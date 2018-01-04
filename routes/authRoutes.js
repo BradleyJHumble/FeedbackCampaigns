@@ -1,7 +1,8 @@
 const passport = require('passport');
 
 module.exports = app => { // exports to index
-	
+
+// GOOGLE AUTH CONFIGURATION!!!
 	app.get(
 		'/auth/google', // route
 		passport.authenticate('google', { // using google oauth
@@ -17,9 +18,28 @@ module.exports = app => { // exports to index
 	}
 	); // Google Stratergy handeling the google login
 
+//FACEBOOK CONFIGURATION!!!
+	app.get(
+		'/auth/facebook', // route
+		passport.authenticate('facebook', { // using facebook oauth
+			scope: ['profile', 'email'] // fetching profile and emails from facebook
+		})
+	);
+
+	app.get(
+	'/auth/facebook/callback', 
+	passport.authenticate('facebook'),
+	(req, res) => {
+		res.redirect('/surveys');
+	}
+	); // Facebook Stratergy handeling the facebook login
+
+
+// API CONFIGURATION!!!
+
 	app.get('/api/logout', (req, res) => {
 		req.logout();
-		res.send(req.user); // for testing , if works returns empty variable
+		res.redirect('/');
 	}); 
 
 	app.get('/api/current_user', (req, res) => {

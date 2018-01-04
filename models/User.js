@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema ({
-	googleId: String // only thing for now
+	googleId: String,
+	facebookId: String
 });
 
 mongoose.model('users', userSchema); // parsing userSchema as an model through mongoose
