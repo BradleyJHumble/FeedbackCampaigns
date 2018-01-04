@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 // testing 
@@ -7,10 +7,9 @@ const Dashboard = () => <h2> Dashboard </h2>
 const SurveryNew = () => <h2> SurveryNew </h2>
 const Landing = () => <h2> Landing </h2>
 
-
-
-const App = () => {
-	return (
+class App extends Component {
+	render() {
+		return (
 			<div className="container"> 
 			  <BrowserRouter>
 			  <div> 
@@ -22,7 +21,8 @@ const App = () => {
 			  </div>
 			  </BrowserRouter>
 			</div>
-	);
+		);
+	}
 };
 
 export default App;
