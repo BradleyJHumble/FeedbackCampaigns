@@ -11,7 +11,7 @@ module.exports = app => { // exports to index
 
 	app.get('/auth/google/callback', passport.authenticate('google')); // Google Stratergy handeling the google login
 
-	app.get('/logout', (req, res) => {
+	app.get('/api/logout', (req, res) => {
 		req.logout();
 		res.send(req.user); // for testing , if works returns empty variable
 	}); 
