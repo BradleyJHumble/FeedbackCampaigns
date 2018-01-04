@@ -18,5 +18,6 @@ module.exports = app => { // exports to index
 
 	app.get('/api/current_user', (req, res) => {
 		res.send(req.user);    // used for react to see if user is logged in 
+	});
 };
 
