@@ -9,7 +9,13 @@ module.exports = app => { // exports to index
 		})
 	);
 
-	app.get('/auth/google/callback', passport.authenticate('google')); // Google Stratergy handeling the google login
+	app.get(
+	'/auth/google/callback', 
+	passport.authenticate('google'),
+	(req, res) => {
+		res.redirect('/surveys');
+	}
+	); // Google Stratergy handeling the google login
 
 	app.get('/api/logout', (req, res) => {
 		req.logout();
