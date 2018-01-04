@@ -5,19 +5,22 @@ class Header extends Component { // simple for testing
 	renderContent(){
 		switch(this.props.auth) {
 			case null:
-				return 'Still deciding';
+				return;
 			case false:
-				return 'Im logged out';
+				return (
+						<li><a href="/auth/google">Login with Google</a></li>
+					);
 			default:
-				return 'Im logged in';
-
+				return (
+						<li><a href="">Logout</a></li>
+					);
 		}
 	}
 
 	render() {
 		return (
 				<nav>
-					<div  className= "nav-wrapper light-blue darken-4">
+					<div  className= "nav-wrapper indigo lighten-3">
 					<div className="container">
 					<a className=" left brand-logo">
 					Feedback Campaigns
