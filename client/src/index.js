@@ -15,3 +15,4 @@ ReactDom.render(
 	document.querySelector('#root')
 );
 
+console.log('Stipe key is ', process.env.REACT_APP_STRIPE_KEY);
