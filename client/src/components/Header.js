@@ -20,7 +20,10 @@ class Header extends Component { // simple for testing
 			default:
 				return [
 						<li key="0"><Payments /></li>, 
-						<li key="1"><a href="/api/logout">Logout</a></li>
+						<li key="1" style={{ margin: '0 10px'}}>
+							Credits: {this.props.auth.credits}
+						</li>,
+						<li key="2"><a href="/api/logout">Logout</a></li>
 					]; /* Keys are to get rid of an dumb react error */
 		}
 	}
