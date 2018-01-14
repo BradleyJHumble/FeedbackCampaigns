@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser =require('body-parser'); // express needs this to access 'req'
 
 require('./models/User'); // needs to load before passport file tries to call it
 require('./services/passport'); // dont need to call it so only require
@@ -21,6 +22,7 @@ app.use(
 // sets up passports system
 app.use(passport.initialize()); 
 app.use(passport.session());
+app.use(bodyParser.json());
 
 require('./routes/authRoutes')(app); // calling function with app object
 require('./routes/billingRoutes')(app); // routes handeling for billing and recieving stripes tokens
