@@ -27,5 +27,15 @@ app.use(bodyParser.json());
 require('./routes/authRoutes')(app); // calling function with app object
 require('./routes/billingRoutes')(app); // routes handeling for billing and recieving stripes tokens
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build')); // Express will server up production assets
+	
+	// Express will serve up index.html if not recognize route
+	const path = require('path');
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
+}
+
 const PORT = process.env.PORT || 5000; // Heroku dynamic port
 app.listen(PORT);
