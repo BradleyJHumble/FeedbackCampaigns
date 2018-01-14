@@ -23,6 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app); // calling function with app object
+require('./routes/billingRoutes')(app); // routes handeling for billing and recieving stripes tokens
 
 const PORT = process.env.PORT || 5000; // Heroku dynamic port
 app.listen(PORT);
