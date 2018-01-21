@@ -4,7 +4,11 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser =require('body-parser'); // express needs this to access 'req'
 
+// modes requires
 require('./models/User'); // needs to load before passport file tries to call it
+require('./models/Survey');
+
+// services requires
 require('./services/passport'); // dont need to call it so only require
 const keys = require('./config/keys');
 
