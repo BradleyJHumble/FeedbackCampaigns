@@ -34,5 +34,8 @@
     "passport-facebook": "^2.1.1",
     "passport-google-oauth20": "^1.0.0",
     "stripe": "^5.4.0"
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
   }
 }
