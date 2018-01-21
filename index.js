@@ -28,8 +28,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
 
+// API Routes Functions
 require('./routes/authRoutes')(app); // calling function with app object
 require('./routes/billingRoutes')(app); // routes handeling for billing and recieving stripes tokens
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build')); // Express will server up production assets
