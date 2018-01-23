@@ -1,34 +1,42 @@
 {
-  "name": "server",
+  "name": "feedbackcampaigns",
   "version": "1.0.0",
-  "description": "",
+  "description": "An campaign system for sending out emails for feedback from users.",
   "main": "index.js",
-  "engines": {
-    "node": "8.1.1",
-    "npm": "5.0.3"
-  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "webhook": "./sendgrid_webhook.sh"
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BradleyJHumble/FeedbackCampaigns.git"
+  },
+  "engines": {
+    "node": "8.9.1"
+  },
+  "author": "BradleyJHumble",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BradleyJHumble/FeedbackCampaigns/issues"
+  },
+  "homepage": "https://github.com/BradleyJHumble/FeedbackCampaigns#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "concurrently": "^3.5.0",
-    "cookie-session": "^2.0.0-beta.2",
-    "express": "^4.15.3",
-    "localtunnel": "^1.8.3",
-    "lodash": "^4.17.4",
-    "mongoose": "^4.11.1",
-    "nodemon": "^1.11.0",
-    "passport": "^0.3.2",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.0-rc0",
+    "nodemon": "^1.14.6",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
     "passport-google-oauth20": "^1.0.0",
-    "path-parser": "^2.0.2",
-    "sendgrid": "^5.1.2",
-    "stripe": "^4.23.1"
+    "sendgrid": "^5.2.3",
+    "stripe": "^5.4.0"
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
   }
+}
