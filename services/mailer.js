@@ -13,8 +13,27 @@ class Mailer extends helper.Mail {
 		this.subject = subject;
 		this.body = new helper.Content('text/html', content);
 		this.recipients = this.formatAddresses(recipients);
+		
+		this.addContent(this.body); // built in helper function from sendgrid
 
+		this.addClickTracking();
+		this.addRecipients();
 	}
+
+	formatAddresses(recipients) { // this is an helper fuction to deformat the emails from the array the Mailer Constructor recieves
+		return recipients.map(({ email })) => {
+			return new helper.Email(email);
+		}
+	}
+
+	addClickTracking(){ // from sendgrid's doc
+		const trackingSettings = new helper.TrackingSettings();
+		const clickTracking = new helper.ClickTracking(true, true);
+
+		trackingSettings.setClickTracking(clickTracking);
+		this.addTrackingSettings(trackingSettings);
+	}
+
 
 }
 
