@@ -20,6 +20,6 @@ module.exports = app => {
 
 		// mailer in use taking the survey-post and the template
 		const mailer = new Mailer(survey, surveyTemplate(survey));
-
+		mailer.send();
 	});
 };

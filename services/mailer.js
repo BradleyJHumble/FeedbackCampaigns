@@ -22,12 +22,12 @@ class Mailer extends helper.Mail {
 	}
 
 	formatAddresses(recipients) { // this is an helper fuction to deformat the emails from the array the Mailer Constructor recieves
-		return recipients.map(({ email })) => {
+		return recipients.map(({ email }) => {
 			return new helper.Email(email);
-		}
+		});
 	}
 
-	addClickTracking(){ // from sendgrid's doc
+	addClickTracking() {
 		const trackingSettings = new helper.TrackingSettings();
 		const clickTracking = new helper.ClickTracking(true, true);
 
