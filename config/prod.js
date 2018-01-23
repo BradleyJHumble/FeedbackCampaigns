@@ -6,5 +6,5 @@ module.exports = {
 	cookieKey: process.env.COOKIE_KEY, // random key
 	stripePblishableKey: process.env.STRIPE_PUBLISHABLE_KEY, // stripe front end key
 	stripeSecretKey: process.env.STRIPE_SECRET_KEY, // stripe back end key
-		sendGridKey: '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'
+	sendGridKey: process.env.SEND_GRID_KEY
 }; 
